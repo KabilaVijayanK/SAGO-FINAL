@@ -34,71 +34,65 @@ const AboutScrollSection = () => {
   );
 
   return (
-    <section
-      ref={ref}
-      className="relative h-[60vh] flex items-center justify-center overflow-hidden"
+   <section
+  ref={ref}
+  className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#111827] to-black"
+>
+  {/* SOFT RADIAL GLOW */}
+  <div className="absolute w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl top-[-150px] left-[-150px]" />
+  <div className="absolute w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl bottom-[-150px] right-[-150px]" />
+
+  {/* CONTENT */}
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+
+    {/* TEXT 1 */}
+    <motion.div
+      style={{ opacity: text1Opacity, y: text1Y }}
+      className="space-y-6"
     >
-      {/* 🔥 BACKGROUND IMAGE */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{ backgroundImage: "url('/hero2.jpg')" }}
-      />
+      <p className="text-xs tracking-[0.4em] text-amber-400 uppercase">
+        Our Quality Promise
+      </p>
 
-      {/* 🔥 DARK + GRADIENT OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
+      <h2 className="text-3xl md:text-5xl font-serif leading-[1.25]">
+        Pure tapioca transformed into
+        <br />
+        <span className="text-amber-400">
+          world-class sago &amp; starch
+        </span>
+      </h2>
 
-      {/* CONTENT */}
-      <div className="relative max-w-5xl mx-auto px-6 text-center text-white">
+      <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto">
+        Every batch tested. Every grain trusted.
+      </p>
+    </motion.div>
 
-        {/* TEXT 1 */}
-        <motion.div
-          style={{ opacity: text1Opacity, y: text1Y }}
-          className="space-y-6"
-        >
-          <p className="text-sm tracking-[0.35em] text-secondary uppercase">
-            Our Quality Promise
-          </p>
+    {/* TEXT 2 */}
+    <motion.div
+      style={{ opacity: text2Opacity, y: text2Y }}
+      className="absolute inset-0 flex items-center justify-center text-center"
+    >
+      <div className="space-y-6">
+        <p className="text-xs tracking-[0.4em] text-amber-400 uppercase">
+          Our Legacy
+        </p>
 
-          <h2 className="text-3xl md:text-5xl font-serif leading-[1.25]">
-            Pure tapioca transformed into
-            <br />
-            <span className="text-secondary">
-              world-class sago &amp; starch
-            </span>
-          </h2>
+        <h2 className="text-3xl md:text-5xl font-serif leading-[1.25]">
+          Over
+          <span className="text-amber-400"> 64 Years </span>
+          of service to
+          <br />
+          the tapioca industry
+        </h2>
 
-          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto">
-            Every batch tested. Every grain trusted.
-          </p>
-        </motion.div>
-
-        {/* TEXT 2 */}
-        <motion.div
-          style={{ opacity: text2Opacity, y: text2Y }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <div className="space-y-6">
-            <p className="text-sm tracking-[0.35em] text-secondary uppercase">
-              Our Legacy
-            </p>
-
-            <h2 className="text-3xl md:text-5xl font-serif leading-[1.25]">
-              Over
-              <span className="text-secondary"> 64 Years </span>
-              of service to
-              <br />
-              the tapioca industry
-            </h2>
-
-            <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto">
-              Built on cooperative strength, transparency,
-              and trust across generations.
-            </p>
-          </div>
-        </motion.div>
-
+        <p className="text-base md:text-lg text-white/70 max-w-3xl mx-auto">
+          Built on cooperative strength, transparency and trust.
+        </p>
       </div>
-    </section>
+    </motion.div>
+
+  </div>
+</section>
   );
 };
 
