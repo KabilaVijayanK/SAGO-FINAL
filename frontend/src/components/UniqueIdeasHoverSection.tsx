@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const UniqueIdeasHoverSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ const UniqueIdeasHoverSection = () => {
         relative
         -mt-28
         z-20
-        px-
+        px-6
       "
     >
       <motion.div
@@ -32,7 +33,6 @@ const UniqueIdeasHoverSection = () => {
           text-white
           rounded-xl
           px-16 py-16
-          
           text-center
         "
       >
@@ -43,16 +43,19 @@ const UniqueIdeasHoverSection = () => {
 
         {/* MAIN HEADING */}
         <h2 className="text-[52px] leading-[1.1] font-semibold">
-          <span className="text-white">Unique </span>
-          <span className="text-white/40">Ideas</span>
+          <span className="text-white">We help </span>
+          <span className="text-white/40">organizations </span>
           <br />
-          <span className="text-white/40">For Your </span>
-          <span className="text-white">Business.</span>
+          <span className="text-white/40">navigate </span>
+          <span className="text-white">
+            their most fragile moments.
+          </span>
         </h2>
 
-        {/* CTA – SMALL & CLEAN */}
+        {/* CTA */}
         <div className="mt-12 flex justify-center">
-          <button
+          <Link
+            to="/services"
             className="
               group
               inline-flex items-center gap-3
@@ -63,19 +66,22 @@ const UniqueIdeasHoverSection = () => {
               font-semibold
               transition
               shadow-[0_0_25px_rgba(244,180,26,0.45)]
+              hover:scale-105
             "
           >
             What We Do
-            <span className="
-              w-7 h-7
-              bg-black text-white
-              flex items-center justify-center
-              transition
-              group-hover:translate-x-1
-            ">
+            <span
+              className="
+                w-7 h-7
+                bg-black text-white
+                flex items-center justify-center
+                transition
+                group-hover:translate-x-1
+              "
+            >
               →
             </span>
-          </button>
+          </Link>
         </div>
       </motion.div>
     </section>

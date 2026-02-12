@@ -8,8 +8,8 @@ const navItems = [
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
-  { label: "E-Auction", href: "/#auction" },
-  { label: "Contact", href: "/#contact" },
+  { label: "E-Auction", href: "/auction" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -187,16 +187,22 @@ const Navbar = () => {
                 {isMobileDropdownOpen && (
                   <div className="ml-4 mt-4 flex flex-col gap-3 text-base text-white/80">
                     <Link
-                      to="/#member-registration"
+                      to="/register/member"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Member Registration
                     </Link>
                     <Link
-                      to="/#merchant-registration"
+                      to="/register/merchant"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Merchant Registration
+                    </Link>
+                    <Link
+                      to="/register/wholesale"
+                      onClick={() => setIsMobileMenuOpen(false)}  
+                    >
+                      Wholesale Registration
                     </Link>
                   </div>
                 )}

@@ -3,3 +3,6 @@ import App from "./App.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(<App />);
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}

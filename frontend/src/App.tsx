@@ -11,6 +11,9 @@ import ProductsPage from "./pages/ProductsPage";
 import MemberRegistration from "./pages/MemberRegistration";
 import MerchantRegistration from "./pages/MerchantRegistration";
 import WholesaleRegistration from "./pages/WholesaleRegistration";
+import ScrollToTop from "./pages/ScrollToTop";
+import Contact from "./pages/Contact";
+
 const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -18,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
@@ -26,6 +30,7 @@ const App = () => (
             <Route path="/register/member" element={<MemberRegistration />} />
 <Route path="/register/merchant" element={<MerchantRegistration />} />
 <Route path="/register/wholesale" element={<WholesaleRegistration />} />
+<Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
