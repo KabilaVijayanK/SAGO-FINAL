@@ -144,19 +144,19 @@ const ProductsPage = () => {
       </section>
 
       {/* SAGO PRODUCTS */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-serif text-4xl text-center mb-14">
-            Tapioca Sago Varieties
-          </h2>
+     <section className="py-14 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="font-serif text-3xl text-center mb-8">
+      Tapioca Sago Varieties
+    </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {sagoProducts.map((product, i) => (
-              <ProductCard key={i} product={product} i={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sagoProducts.map((product, i) => (
+        <ProductCard key={i} product={product} i={i} />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* STARCH PRODUCTS */}
       <section className="py-20">
