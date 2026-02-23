@@ -8,21 +8,19 @@ const Contact: React.FC = () => {
     <>
       <Navbar />
 
-      {/* Main Section */}
       <main className="bg-gradient-to-br from-slate-100 to-slate-200 pt-32 pb-20 px-6 min-h-screen">
         <div className="max-w-7xl mx-auto">
 
           {/* Heading */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800">
-              24/7 Customer Support – Always Here for You
+              Contact SAGOSERVE
             </h1>
             <p className="text-slate-600 mt-4 text-lg">
-              Reach out to us anytime. We're happy to help.
+              Salem Starch and Sago Manufacturers' Service Industrial Co-operative Society Ltd. (IND.No.1421)
             </p>
           </div>
 
-          {/* Grid */}
           <div className="grid md:grid-cols-2 gap-12">
 
             {/* Left Info */}
@@ -33,30 +31,44 @@ const Contact: React.FC = () => {
 
               <div className="space-y-6 text-slate-600">
 
+                {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <Phone className="text-green-500 mt-1" />
-                  <span>9489905440, 9489905441, 9499018147</span>
+                  <Phone className="text-green-600 mt-1" />
+                  <span>
+                    +91 99404 45416<br />
+                    +91 94899 05441
+                  </span>
                 </div>
 
+                {/* Email */}
                 <div className="flex items-start gap-4">
-                  <Mail className="text-green-500 mt-1" />
-                  <span>slm_mdsago@yahoo.co.in</span>
+                  <Mail className="text-green-600 mt-1" />
+                  <span>
+                    sagoservemarketing@gmail.com<br />
+                    slm_mdsago@yahoo.co.in
+                  </span>
                 </div>
 
+                {/* Website */}
                 <div className="flex items-start gap-4">
-                  <Globe className="text-green-500 mt-1" />
+                  <Globe className="text-green-600 mt-1" />
                   <span>www.sagoserve.co.in</span>
                 </div>
 
+                {/* Working Hours */}
                 <div className="flex items-start gap-4">
-                  <Clock className="text-green-500 mt-1" />
-                  <span>Mon–Sat 9:45 AM – 5:45 PM</span>
+                  <Clock className="text-green-600 mt-1" />
+                  <span>Monday – Saturday | 9:30 AM – 5:30 PM</span>
                 </div>
 
+                {/* Address */}
                 <div className="flex items-start gap-4">
-                  <MapPin className="text-green-500 mt-1" />
+                  <MapPin className="text-green-600 mt-1" />
                   <span>
-                    Jagirammmapalayam(Post), Omalur Main Road, Salem – 636302
+                    Omalur Main Road,<br />
+                    Jagir Ammapalayam (Post),<br />
+                    Salem – 636 302,<br />
+                    Tamil Nadu, India
                   </span>
                 </div>
 
@@ -70,30 +82,30 @@ const Contact: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-500 outline-none"
                 />
 
                 <input
                   type="tel"
                   placeholder="Your Mobile Number"
-                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-500 outline-none"
                 />
 
                 <input
                   type="email"
-                  placeholder="Your Email"
-                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-400 outline-none"
+                  placeholder="Your Email Address"
+                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-500 outline-none"
                 />
 
                 <textarea
                   rows={5}
                   placeholder="Your Message"
-                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-green-500 outline-none"
                 ></textarea>
 
                 <button
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 rounded-lg transition duration-300"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-lg transition duration-300"
                 >
                   Send Message
                 </button>

@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import ProductsPage from "./pages/ProductsPage";
+import AuctionPage from "./pages/AuctionPage.tsx";
 import MemberRegistration from "./pages/MemberRegistration";
 import MerchantRegistration from "./pages/MerchantRegistration";
 import WholesaleRegistration from "./pages/WholesaleRegistration";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/auction" element={<AuctionPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/register/member" element={<MemberRegistration />} />
 <Route path="/register/merchant" element={<MerchantRegistration />} />

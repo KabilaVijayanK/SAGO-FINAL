@@ -410,6 +410,98 @@ const Index = () => {
       ))}
     </motion.div>
   </div>
+  </section>
+{/* ===== CERTIFICATIONS - 3 + 2 CENTER GRID ===== */}
+<section className="py-28 bg-[#f8fafc]">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+    <div className="text-center mb-20">
+      <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900">
+        Certifications & Recognitions
+      </h2>
+      <div className="w-24 h-[3px] bg-blue-600 mx-auto mt-6" />
+    </div>
+
+    {/* GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
+
+      {[
+        {
+          icon: "🌍",
+          title: "Geographical Indication (GI)",
+          subtitle: "Salem Sago (Javvarusi)",
+          desc: "Registered on 31.03.2023 recognizing authenticity of Salem Sago.",
+        },
+        {
+          icon: "®",
+          title: "Trademark Registration",
+          subtitle: "SAGOSERVE SAGO",
+          desc: "Registered on 20.12.2024 ensuring brand protection.",
+        },
+        {
+          icon: "🧪",
+          title: "NABL Accreditation",
+          subtitle: "ISO/IEC 17025:2017",
+          desc: "Accredited on 30.08.2018 confirming testing standards.",
+        },
+        {
+          icon: "📦",
+          title: "APEDA Registration",
+          subtitle: "RCMC/APEDA/18441/2025–2026",
+          desc: "Authorised for export participation.",
+        },
+        {
+          icon: "🌐",
+          title: "Importer–Exporter Code",
+          subtitle: "AAAAS2151B",
+          desc: "Authorising SAGOSERVE for international trade.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.08 }}
+          whileHover={{ y: -6 }}
+          className={`
+            ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}
+            bg-white border border-gray-200
+            shadow-sm hover:shadow-lg
+            transition-all duration-300
+            p-8
+          `}
+        >
+
+          {/* Icon */}
+          <div className="w-14 h-14 flex items-center justify-center 
+                          bg-blue-50 border border-blue-200 
+                          text-2xl mb-6">
+            {item.icon}
+          </div>
+
+          {/* Title */}
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            {item.title}
+          </h3>
+
+          {/* Subtitle */}
+          <p className="text-blue-600 text-sm font-medium mb-4">
+            {item.subtitle}
+          </p>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {item.desc}
+          </p>
+
+        </motion.div>
+      ))}
+
+    </div>
+
+  </div>
 
 </section>
       {/* ===== INDUSTRIES WE SERVE ===== */}
