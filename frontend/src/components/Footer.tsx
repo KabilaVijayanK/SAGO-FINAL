@@ -7,12 +7,13 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const quickLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -33,7 +34,7 @@ const Footer = () => {
 
           {/* LOGO + ABOUT */}
           <div>
-            <a href="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
   <img 
     src="/logo.png" 
     alt="Sagoserve"
@@ -42,7 +43,7 @@ const Footer = () => {
   <span className="text-white font-semibold text-lg">
     SAGOSERVE
   </span>
-</a>
+</Link>
 
             <p className="text-white/60 leading-relaxed text-sm">
               Trusted source for quality sago and starch since 1981.
@@ -72,12 +73,12 @@ const Footer = () => {
             <ul className="space-y-3 text-white/60 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="hover:text-white transition"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

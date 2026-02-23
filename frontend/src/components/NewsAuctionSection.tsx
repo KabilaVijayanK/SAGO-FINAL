@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Clock, TrendingUp, Bell, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const newsItems = [
   { type: "Price Update", title: "Sago prices rise by 3% this week", time: "2 hours ago" },
@@ -98,9 +99,9 @@ const NewsAuctionSection = () => {
                 ))}
               </div>
 
-              <button className="btn-luxury-primary rounded-full w-full mt-6 text-xs">
+              <Link to="/auction" className="btn-luxury-primary rounded-full w-full mt-6 text-xs inline-block text-center">
                 View All Lots
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

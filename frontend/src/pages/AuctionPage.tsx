@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Gavel,
   Clock,
@@ -118,160 +119,245 @@ const scrollToAuction = () => {
   return (
     <div className="min-h-screen bg-background font-body">
       <Navbar />
-      {/* ===== HERO ===== */}
-      <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-          <img src={heroBg} alt="Sago plantation" className="h-full w-full object-cover" />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
-
-        <motion.div className="relative z-10 text-center px-6 max-w-3xl mx-auto" style={{ opacity: heroOpacity }}>
-          <motion.div
-            initial="hidden" animate="visible" variants={fadeUp} custom={0}
-            className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm px-5 py-2 mb-8"
-          >
-            <Gavel className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-primary-foreground">SAGOSERVE E-Auction</span>
-          </motion.div>
-
-          <motion.h1
-            initial="hidden" animate="visible" variants={fadeUp} custom={1}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight tracking-tight"
-          >
-            E-Auction
-          </motion.h1>
-
-          <motion.p
-            initial="hidden" animate="visible" variants={fadeUp} custom={2}
-            className="mt-5 text-lg sm:text-xl text-primary-foreground/80 max-w-xl mx-auto leading-relaxed"
-          >
-            Transparent. Competitive. Fair Price Discovery.
-          </motion.p>
-
-          <motion.div
-            initial="hidden" animate="visible" variants={fadeUp} custom={3}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <button
-  onClick={scrollToAuction}
-  className="inline-flex items-center justify-center gap-2
-             bg-yellow-500 text-black
-             font-semibold px-8 py-3.5
-             rounded-xl
-             transition-all duration-300
-             hover:scale-105 hover:bg-yellow-400
-             active:scale-100"
+  {/* ===== HERO ===== */}
+<section
+  ref={heroRef}
+  className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
 >
-  <Gavel className="h-4 w-4" />
-  View Live Auctions
-</button>
-            <a href="#how-it-works" className="inline-flex items-center justify-center gap-2 border border-primary-foreground/30 bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground font-semibold px-8 py-3.5 rounded-full transition-colors hover:bg-primary-foreground/20">
-              How It Works
-            </a>
-          </motion.div>
-        </motion.div>
+  {/* VIDEO BACKGROUND */}
+  <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
+    <video
+      src="/service1.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="h-full w-full object-cover"
+    />
+  </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-        >
-          <ChevronDown className="h-6 w-6 text-primary-foreground/60" />
-        </motion.div>
-      </section>
-      {/* ===== HOW IT WORKS SECTION ===== */}
-      <section className="py-24 px-6">
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, i) => (
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+
+  {/* CONTENT */}
+  <motion.div
+    className="relative z-10 text-center px-6 max-w-3xl mx-auto"
+    style={{ opacity: heroOpacity }}
+  >
     <motion.div
-      key={step.label}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate="visible"
       variants={fadeUp}
-      custom={i}
-      className="relative flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-border card-shadow hover:card-shadow-elevated transition-all duration-300 hover:-translate-y-1"
+      custom={0}
+      className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm px-5 py-2 mb-8"
     >
-      {/* 🔥 ICON FIXED HERE */}
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg mb-5">
-        <step.icon className="h-7 w-7 text-white drop-shadow-md" />
-      </div>
-
-      <span className="absolute top-4 right-4 text-xs font-bold text-muted-foreground/40">
-        {String(i + 1).padStart(2, "0")}
+      <Gavel className="h-4 w-4 text-accent" />
+      <span className="text-sm font-medium text-primary-foreground">
+        SAGOSERVE E-Auction
       </span>
-
-      <h3 className="font-display text-lg font-semibold text-foreground">
-        {step.label}
-      </h3>
-
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-        {step.desc}
-      </p>
     </motion.div>
-  ))}
-        </div>
-      </section>
-     {/* ===== LIVE AUCTION BOARD - BLUE EDITION ===== */}
+
+    <motion.h1
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+      custom={1}
+      className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight tracking-tight"
+    >
+      E-Auction
+    </motion.h1>
+
+    <motion.p
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+      custom={2}
+      className="mt-5 text-lg sm:text-xl text-primary-foreground/80 max-w-xl mx-auto leading-relaxed"
+    >
+      Transparent. Competitive. Fair Price Discovery.
+    </motion.p>
+
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+      custom={3}
+      className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+    >
+      <button
+        onClick={scrollToAuction}
+        className="inline-flex items-center justify-center gap-2
+                   bg-yellow-500 text-black
+                   font-semibold px-8 py-3.5
+                   rounded-xl
+                   transition-all duration-300
+                   hover:scale-105 hover:bg-yellow-400
+                   active:scale-100"
+      >
+        <Gavel className="h-4 w-4" />
+        View Live Auctions
+      </button>
+
+      <Link to="/register/member" className="inline-flex items-center justify-center gap-2
+                   bg-white text-black
+                   font-semibold px-8 py-3.5
+                   rounded-xl
+                   transition-all duration-300
+                   hover:scale-105 hover:bg-gray-100
+                   active:scale-100">
+        <CheckCircle className="h-4 w-4" />
+        Register Now
+      </Link>
+
+     
+    </motion.div>
+  </motion.div>
+
+  {/* Scroll indicator */}
+  <motion.div
+    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+    animate={{ y: [0, 8, 0] }}
+    transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+  >
+    <ChevronDown className="h-6 w-6 text-primary-foreground/60" />
+  </motion.div>
+</section>
+      {/* ===== HOW IT WORKS - BLACK EDITION ===== */}
+<section className="relative py-28 px-6 bg-black text-white overflow-hidden">
+
+  {/* Subtle Glow Effect */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 blur-[140px] rounded-full" />
+
+  <div className="relative max-w-6xl mx-auto">
+
+    {/* SECTION HEADING */}
+    <div className="text-center mb-20">
+      <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+        How It <span className="text-yellow-400">Works</span>
+      </h2>
+      <p className="text-white/60 max-w-2xl mx-auto">
+        A transparent and structured e-auction process designed to ensure fair price discovery and competitive bidding.
+      </p>
+      <div className="w-24 h-[3px] bg-yellow-500 mx-auto mt-6 rounded-full" />
+    </div>
+
+    {/* STEPS GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      {steps.map((step, i) => (
+        <motion.div
+          key={step.label}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={i}
+          whileHover={{ y: -8 }}
+          className="relative group p-8 rounded-2xl 
+                     bg-[#111111]
+                     border border-white/10
+                     hover:border-yellow-500/40
+                     transition-all duration-500
+                     text-center"
+        >
+
+          {/* Step Number Badge */}
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 
+                          w-10 h-10 rounded-full 
+                          bg-yellow-500 text-black 
+                          flex items-center justify-center 
+                          font-bold shadow-lg">
+            {String(i + 1).padStart(2, "0")}
+          </div>
+
+          {/* Icon */}
+          <div className="mt-6 mb-6 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-xl 
+                            bg-yellow-500/10
+                            flex items-center justify-center
+                            group-hover:scale-110
+                            transition-transform duration-300">
+              <step.icon className="h-7 w-7 text-yellow-400" />
+            </div>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-semibold mb-3 text-white">
+            {step.label}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-white/60 leading-relaxed">
+            {step.desc}
+          </p>
+
+        </motion.div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+ {/* ===== LIVE AUCTION BOARD - PREMIUM BLUE ===== */}
 <section
   id="auction-board"
-  className="py-24 px-6 
-             bg-gradient-to-br from-[#0b1120] via-[#13274f] to-[#1e3a8a] 
-             text-white"
+  className="relative py-28 px-6 
+             bg-gradient-to-br from-[#0b1b3a] via-[#132c63] to-[#1e40af] 
+             text-white overflow-hidden"
 >
-  <div className="max-w-6xl mx-auto">
 
-    {/* Live Indicator */}
+  {/* Background Glow */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[180px] rounded-full" />
+
+  <div className="relative max-w-6xl mx-auto">
+
+    {/* Header Block */}
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeUp}
       custom={0}
-      className="flex items-center gap-3 mb-2"
+      className="text-center mb-16"
     >
-      <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse" />
-      <span className="text-sm font-semibold text-green-300 uppercase tracking-wider">
-        Live Now
-      </span>
+      <div className="inline-flex items-center gap-3 mb-4">
+        <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse" />
+        <span className="text-sm font-semibold text-green-300 uppercase tracking-wider">
+          Live Now
+        </span>
+      </div>
+
+      <h2 className="font-display text-4xl md:text-5xl font-bold">
+        Live <span className="text-yellow-400">Auction Board</span>
+      </h2>
+
+      <div className="w-24 h-[3px] bg-yellow-400 mx-auto mt-6 rounded-full" />
     </motion.div>
 
-    {/* Heading */}
-    <motion.h2
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeUp}
-      custom={1}
-      className="font-display text-3xl sm:text-4xl font-bold mb-12 text-white drop-shadow-md"
-    >
-      Live Auction Board
-    </motion.h2>
 
-    {/* Desktop Table */}
+    {/* ===== DESKTOP TABLE ===== */}
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeUp}
-      custom={2}
+      custom={1}
       className="hidden lg:block 
-                 rounded-xl 
-                 border border-white/10 
-                 bg-white/5 
-                 backdrop-blur-xl
+                 rounded-2xl 
+                 bg-white/5 backdrop-blur-xl
+                 border border-white/10
+                 shadow-[0_30px_80px_rgba(0,0,0,0.4)]
                  overflow-hidden"
     >
       <table className="w-full text-left">
 
-        {/* Header */}
+        {/* HEADER */}
         <thead>
-          <tr className="border-b border-white/10 bg-white/10">
+          <tr className="bg-white/10 border-b border-white/10">
             {["Lot", "Product", "Grade", "Qty", "Base (₹)", "Current (₹)", "Time", "Status", "Action"].map((h) => (
               <th
                 key={h}
-                className="px-5 py-4 text-xs font-semibold uppercase tracking-wider text-white/80"
+                className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-white/70"
               >
                 {h}
               </th>
@@ -279,107 +365,114 @@ const scrollToAuction = () => {
           </tr>
         </thead>
 
-        {/* Body */}
+        {/* BODY */}
         <tbody>
           {lots.map((lot) => (
             <tr
               key={lot.id}
-              className={`border-b border-white/10 hover:bg-white/10 transition ${
-                flashId === lot.id ? "animate-pulse" : ""
-              }`}
+              className="border-b border-white/5 hover:bg-white/10 transition-all duration-300"
             >
-              <td className="px-5 py-4 font-semibold">#{lot.id}</td>
-              <td className="px-5 py-4">{lot.product}</td>
-              <td className="px-5 py-4 text-white/70">{lot.grade}</td>
-              <td className="px-5 py-4 text-white/70">{lot.quantity}</td>
-              <td className="px-5 py-4 text-white/70">
+              <td className="px-6 py-4 font-semibold text-white">
+                #{lot.id}
+              </td>
+
+              <td className="px-6 py-4 font-medium text-white">
+                {lot.product}
+              </td>
+
+              <td className="px-6 py-4 text-white/60">
+                {lot.grade}
+              </td>
+
+              <td className="px-6 py-4 text-white/60">
+                {lot.quantity}
+              </td>
+
+              <td className="px-6 py-4 text-white/60">
                 ₹{lot.base.toLocaleString()}
               </td>
-              <td className="px-5 py-4 font-bold text-yellow-400">
+
+              <td className="px-6 py-4 font-bold text-yellow-400 text-lg">
                 ₹{lot.current.toLocaleString()}
               </td>
 
-              <td className="px-5 py-4">
-                <span
-                  className={`font-mono text-sm ${
-                    lot.status === "LIVE"
-                      ? "text-green-300 font-semibold"
-                      : "text-white/50"
-                  }`}
-                >
-                  {lot.status === "LIVE"
-                    ? formatTime(lot.time)
-                    : "—"}
+              <td className="px-6 py-4">
+                <span className={`font-mono text-sm ${
+                  lot.status === "LIVE"
+                    ? "text-green-300 font-semibold"
+                    : "text-white/40"
+                }`}>
+                  {lot.status === "LIVE" ? formatTime(lot.time) : "—"}
                 </span>
               </td>
 
-              <td className="px-5 py-4">
-                <span
-                  className={`inline-flex items-center px-3 py-1 text-xs font-bold uppercase rounded ${
-                    lot.status === "LIVE"
-                      ? "bg-green-600 text-white"
-                      : lot.status === "CLOSED"
-                      ? "bg-gray-700 text-gray-300"
-                      : "bg-blue-700 text-white"
-                  }`}
-                >
+              <td className="px-6 py-4">
+                <span className={`px-3 py-1 text-xs font-bold uppercase rounded-full ${
+                  lot.status === "LIVE"
+                    ? "bg-green-500/20 text-green-300 border border-green-400/30"
+                    : lot.status === "CLOSED"
+                    ? "bg-gray-600/20 text-gray-400 border border-gray-500/20"
+                    : "bg-blue-500/20 text-blue-300 border border-blue-400/30"
+                }`}>
                   {lot.status}
                 </span>
               </td>
 
-              <td className="px-5 py-4">
+              <td className="px-6 py-4">
                 {lot.status === "LIVE" ? (
                   <button
                     onClick={() => setSelectedLot(lot)}
-                    className="px-4 py-2 text-sm font-semibold 
+                    className="px-5 py-2 text-sm font-semibold 
                                bg-yellow-500 text-black 
-                               rounded-lg hover:bg-yellow-400 transition"
+                               rounded-xl
+                               hover:bg-yellow-400
+                               hover:scale-105
+                               transition-all duration-300"
                   >
                     Place Bid
                   </button>
                 ) : (
-                  <span className="text-white/40">—</span>
+                  <span className="text-white/30">—</span>
                 )}
               </td>
             </tr>
           ))}
         </tbody>
-
       </table>
     </motion.div>
 
-    {/* Mobile Cards */}
-    <div className="lg:hidden space-y-4 mt-6">
-      {lots.map((lot, i) => (
-        <motion.div
+
+    {/* ===== MOBILE CARDS ===== */}
+    <div className="lg:hidden space-y-6 mt-8">
+      {lots.map((lot) => (
+        <div
           key={lot.id}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          custom={i}
-          className="rounded-xl border border-white/10 
-                     bg-white/5 backdrop-blur-md p-5"
+          className="bg-white/5 backdrop-blur-xl 
+                     border border-white/10 
+                     rounded-2xl p-6"
         >
-          <div className="flex justify-between mb-3">
+          <div className="flex justify-between mb-4">
             <div>
-              <h3 className="font-semibold">{lot.product}</h3>
-              <span className="text-xs text-white/60">
-                Lot #{lot.id} · Grade {lot.grade}
-              </span>
+              <h3 className="font-semibold text-white">
+                {lot.product}
+              </h3>
+              <p className="text-xs text-white/50">
+                Lot #{lot.id} · {lot.grade}
+              </p>
             </div>
-            <span className="text-xs font-bold uppercase">
+
+            <span className="text-xs font-bold uppercase text-blue-300">
               {lot.status}
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
+          <div className="grid grid-cols-2 gap-4 text-sm mb-4">
             <div>
-              <span className="block text-white/60">Base</span>
+              <span className="block text-white/50">Base</span>
               ₹{lot.base.toLocaleString()}
             </div>
             <div>
-              <span className="block text-white/60">Current</span>
+              <span className="block text-white/50">Current</span>
               <span className="text-yellow-400 font-bold">
                 ₹{lot.current.toLocaleString()}
               </span>
@@ -390,14 +483,16 @@ const scrollToAuction = () => {
             <button
               onClick={() => setSelectedLot(lot)}
               className="w-full py-2.5 bg-yellow-500 text-black 
-                         font-semibold rounded-lg hover:bg-yellow-400 transition"
+                         font-semibold rounded-xl 
+                         hover:bg-yellow-400 transition"
             >
               Place Bid
             </button>
           )}
-        </motion.div>
+        </div>
       ))}
     </div>
+
   </div>
 </section>
       {/* ===== BID MODAL ===== */}
@@ -408,7 +503,7 @@ const scrollToAuction = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center 
-                 bg-black/60 backdrop-blur-sm px-4"
+                 bg-black/70 backdrop-blur-md px-4"
       onClick={() => setSelectedLot(null)}
     >
       <motion.div
@@ -416,20 +511,17 @@ const scrollToAuction = () => {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-md rounded-2xl 
+        className="w-full max-w-md rounded-3xl 
                    bg-[#0f172a] 
                    border border-white/10 
-                   p-8 text-white"
+                   p-8 text-white shadow-2xl"
       >
-        <div className="flex justify-between mb-6">
-          <h3 className="text-xl font-bold">
-            Place Bid — Lot #{selectedLot.id}
-          </h3>
-          <button onClick={() => setSelectedLot(null)}>✕</button>
-        </div>
+        <h3 className="text-xl font-bold mb-6">
+          Place Bid — Lot #{selectedLot.id}
+        </h3>
 
         <div className="bg-white/5 rounded-xl p-4 mb-6">
-          <span className="block text-sm text-white/60 mb-1">
+          <span className="block text-sm text-white/50">
             Current Price
           </span>
           <span className="text-3xl font-bold text-yellow-400">
@@ -444,7 +536,7 @@ const scrollToAuction = () => {
           placeholder={`Min ₹${(selectedLot.current + 1).toLocaleString()}`}
           className="w-full border border-white/10 rounded-xl px-4 py-3 mb-6 
                      bg-white/5 text-white placeholder:text-white/50 
-                     focus:ring-2 focus:ring-yellow-500 outline-none"
+                     focus:ring-2 focus:ring-yellow-400 outline-none"
         />
 
         <button
@@ -479,9 +571,9 @@ const scrollToAuction = () => {
         </div>
       </section>
 
-      {/* ===== INSIGHTS ===== */}
-<section className="py-24 px-6 bg-white">
-  <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
+     {/* ===== INSIGHTS ===== */}
+<section className="py-16 px-6 bg-white">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
 
     {insights.map((item, i) => (
       <motion.div
@@ -491,32 +583,34 @@ const scrollToAuction = () => {
         viewport={{ once: true }}
         variants={fadeUp}
         custom={i}
-        className="flex flex-col items-center text-center 
-                   p-10 
-                   bg-[#111111] 
-                   border border-white/10 
-                   rounded-xl 
-                   hover:border-yellow-500/40
+        whileHover={{ y: -6 }}
+        className="flex flex-col items-center text-center
+                   p-8
+                   bg-[#f9fafb]
+                   border border-gray-200
+                   rounded-2xl
+                   hover:shadow-xl
                    transition-all duration-300"
       >
         {/* ICON */}
         <div className="flex items-center justify-center 
-                        w-14 h-14 
+                        w-12 h-12 
                         rounded-lg 
-                        bg-yellow-500/10 
-                        mb-6">
-          <item.icon className="h-6 w-6 text-yellow-500" />
+                        bg-yellow-100 
+                        mb-4">
+          <item.icon className="h-5 w-5 text-yellow-600" />
         </div>
 
         {/* VALUE */}
-        <span className="text-4xl font-bold text-white font-display">
+        <span className="text-3xl sm:text-4xl font-bold text-gray-900 font-display">
           {item.value}
         </span>
 
         {/* TITLE */}
-        <span className="mt-2 text-sm text-gray-400 uppercase tracking-wider">
+        <span className="mt-1 text-xs text-gray-500 uppercase tracking-widest">
           {item.title}
         </span>
+
       </motion.div>
     ))}
 
@@ -542,17 +636,16 @@ const scrollToAuction = () => {
     </h2>
 
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <button
-        className="inline-flex items-center justify-center 
-                   px-8 py-3.5 
-                   rounded-xl 
-                   font-semibold 
+      <Link to="/register/member" className="inline-flex items-center justify-center gap-2
                    bg-yellow-500 text-black
-                   hover:bg-yellow-400 
-                   transition-all duration-300"
-      >
+                   font-semibold px-8 py-3.5
+                   rounded-xl
+                   transition-all duration-300
+                   hover:scale-105 hover:bg-gray-100
+                   active:scale-100">
+        <CheckCircle className="h-4 w-4" />
         Register Now
-      </button>
+      </Link>
 
       <button
         className="inline-flex items-center justify-center 

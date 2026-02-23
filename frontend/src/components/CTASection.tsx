@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   const ref = useRef(null);
@@ -60,10 +61,10 @@ const CTASection = () => {
           START SAGOSERVE.
         </h3>
 
-        <button className="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 px-10 py-4 rounded-full text-white shadow-xl hover:scale-105 transition">
+        <Link to="/contact" className="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 px-10 py-4 rounded-full text-white shadow-xl hover:scale-105 transition">
           Contact Us
           <ArrowRight size={18} />
-        </button>
+        </Link>
       </div>
     </section>
   );

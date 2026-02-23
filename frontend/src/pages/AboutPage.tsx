@@ -411,20 +411,24 @@ const Index = () => {
     </motion.div>
   </div>
   </section>
-{/* ===== CERTIFICATIONS - 3 + 2 CENTER GRID ===== */}
-<section className="py-28 bg-[#f8fafc]">
+
+{/* ===== CERTIFICATIONS - PREMIUM WHITE ===== */}
+<section className="py-20 bg-white">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* Heading */}
-    <div className="text-center mb-20">
-      <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900">
+    <div className="text-center mb-14">
+      <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
         Certifications & Recognitions
       </h2>
-      <div className="w-24 h-[3px] bg-blue-600 mx-auto mt-6" />
+      <p className="mt-3 text-gray-600 max-w-2xl mx-auto text-sm">
+        Recognitions that reflect our commitment to quality, compliance and global standards.
+      </p>
+      <div className="w-20 h-[3px] bg-blue-600 mx-auto mt-5 rounded-full" />
     </div>
 
     {/* GRID */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
 
       {[
         {
@@ -460,34 +464,39 @@ const Index = () => {
       ].map((item, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.08 }}
           whileHover={{ y: -6 }}
           className={`
             ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}
-            bg-white border border-gray-200
-            shadow-sm hover:shadow-lg
+            bg-gray-50
+            border border-gray-200
+            rounded-2xl
+            p-6
+            hover:shadow-xl
             transition-all duration-300
-            p-8
           `}
         >
 
           {/* Icon */}
-          <div className="w-14 h-14 flex items-center justify-center 
-                          bg-blue-50 border border-blue-200 
-                          text-2xl mb-6">
+          <div className="w-12 h-12 flex items-center justify-center 
+                          bg-blue-100 
+                          text-blue-600 
+                          text-xl 
+                          rounded-lg 
+                          mb-4">
             {item.icon}
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-base font-semibold text-gray-900 mb-1">
             {item.title}
           </h3>
 
           {/* Subtitle */}
-          <p className="text-blue-600 text-sm font-medium mb-4">
+          <p className="text-blue-600 text-xs font-medium mb-3">
             {item.subtitle}
           </p>
 
@@ -502,7 +511,6 @@ const Index = () => {
     </div>
 
   </div>
-
 </section>
       {/* ===== INDUSTRIES WE SERVE ===== */}
       <section className="py-24 md:py-32 bg-section-alt">

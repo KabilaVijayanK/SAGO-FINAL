@@ -1,21 +1,25 @@
 import { motion } from "framer-motion";
 import { UserPlus, Radio, ShoppingBag, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
     icon: UserPlus,
     title: "Register",
     desc: "Create your account and get verified access to SAGOSERVE.",
+    href: "/register/member",
   },
   {
     icon: Radio,
     title: "Live Auctions",
     desc: "Participate in real-time transparent auctions.",
+    href: "/auction",
   },
   {
     icon: ShoppingBag,
     title: "Products",
     desc: "Explore premium sago & starch products.",
+    href: "/products",
   },
 ];
 
@@ -54,13 +58,11 @@ const StartUsingSection = () => {
           {/* CARDS */}
           <div className="grid md:grid-cols-3 gap-8 relative">
             {steps.map((s, i) => (
-              <motion.div
+              <Link
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
-                viewport={{ once: true }}
+                to={s.href}
                 className="
+                  block
                   bg-[#111]
                   rounded-2xl
                   p-8
@@ -71,22 +73,29 @@ const StartUsingSection = () => {
                   group
                 "
               >
-                <div className="w-14 h-14 rounded-xl bg-amber-600/10 flex items-center justify-center mb-6">
-                  <s.icon className="w-7 h-7 text-amber-600" />
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-14 h-14 rounded-xl bg-amber-600/10 flex items-center justify-center mb-6">
+                    <s.icon className="w-7 h-7 text-amber-600" />
+                  </div>
 
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {s.title}
-                </h3>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {s.title}
+                  </h3>
 
-                <p className="text-sm text-white/60 leading-relaxed mb-6">
-                  {s.desc}
-                </p>
+                  <p className="text-sm text-white/60 leading-relaxed mb-6">
+                    {s.desc}
+                  </p>
 
-                <span className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium">
-                  Discover <ArrowRight size={16} />
-                </span>
-              </motion.div>
+                  <span className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium">
+                    Discover <ArrowRight size={16} />
+                  </span>
+                </motion.div>
+              </Link>
             ))}
           </div>
 

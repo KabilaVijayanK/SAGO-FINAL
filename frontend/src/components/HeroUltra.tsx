@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const HeroUltra = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -98,7 +99,8 @@ const HeroUltra = () => {
 
         {/* CTA BUTTONS */}
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-          <button
+          <Link
+            to="/products"
             className="
               bg-gradient-to-r from-[#8b5e34] to-[#c08a5b]
               px-8 md:px-10 py-3 md:py-4
@@ -107,12 +109,14 @@ const HeroUltra = () => {
               text-white font-semibold
               shadow-[0_0_30px_rgba(192,138,91,0.4)]
               hover:scale-105 transition
+              inline-block text-center
             "
           >
             Explore Products →
-          </button>
+          </Link>
 
-          <button
+          <Link
+            to="/auction"
             className="
               border border-[#c08a5b]/40
               px-8 md:px-10 py-3 md:py-4
@@ -120,10 +124,11 @@ const HeroUltra = () => {
               text-sm md:text-base
               text-[#d2a679]
               hover:bg-[#c08a5b]/10 transition
+              inline-block text-center
             "
           >
             View Auctions
-          </button>
+          </Link>
         </div>
       </motion.div>
 

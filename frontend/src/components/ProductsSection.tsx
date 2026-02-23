@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import sagoTexture from "@/assets/sago-texture.jpg";
 import starchProduct from "@/assets/starch-product.jpg";
@@ -142,9 +143,9 @@ const ProductsSection = () => {
                     </motion.div>
 
                     <div className="flex justify-between items-center px-6 py-4 border-t text-sm">
-                      <span className="bg-[#5f7a4f] text-white px-6 py-2 rounded-md">
+                      <Link to="/products" className="bg-[#5f7a4f] text-white px-6 py-2 rounded-md inline-block">
                         Get started
-                      </span>
+                      </Link>
 
                       <button
                         onClick={() => setFlipped(index)}

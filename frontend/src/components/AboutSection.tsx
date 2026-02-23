@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import warehouseImg from "@/assets/warehouse.jpg";
 
 const AboutSection = () => {
@@ -88,9 +89,10 @@ const AboutSection = () => {
             </div>
 
             {/* CTA */}
-            <motion.button
+            <motion.div
               whileHover={{ x: 6 }}
-              className="
+            >
+              <Link to="/about" className="
                 inline-flex items-center gap-3
                 mt-12 px-10 py-4
                 rounded-full
@@ -99,11 +101,11 @@ const AboutSection = () => {
                 hover:bg-[#1e3a8a]
                 hover:text-white
                 transition-all
-              "
-            >
-              Learn More
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
+              ">
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </motion.div>
 
         </div>

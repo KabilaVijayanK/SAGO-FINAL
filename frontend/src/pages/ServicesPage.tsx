@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import weighbridgeImg from "@/assets/weighbridge.jpg";
 import godownImg from "@/assets/godown.jpg";
@@ -241,24 +242,37 @@ const ServicesPage = () => {
   <div className="max-w-7xl mx-auto px-6">
 
     <div className="grid lg:grid-cols-2 gap-20 items-center">
+{/* LEFT - PREMIUM ALIGNED IMAGE */}
+<motion.div
+  initial={{ opacity: 0, x: -60 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className="relative w-full"
+>
+  {/* Decorative Frame */}
+  <div className="absolute -top-5 -left-5 w-full h-full 
+                  border-2 border-blue-200/70
+                  rounded-[28px]
+                  z-0" />
 
-      {/* LEFT - IMAGE WITH MODERN FRAME */}
-      <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="relative"
-      >
-        <div className="absolute -top-6 -left-6 w-full h-full border-2 border-blue-100 rounded-3xl" />
+  {/* Image Container */}
+  <div className="relative z-10 
+                  rounded-[28px] 
+                  overflow-hidden 
+                  aspect-[16/10]
+                  shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
 
-        <img
-          src={weighbridgeImg}
-          alt="Weighbridge"
-          className="relative rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.1)]"
-        />
-      </motion.div>
+    <img
+      src="/wight.jpg"
+      alt="Weighbridge"
+      className="w-full h-full object-cover 
+                 transition duration-700 
+                 hover:scale-105"
+    />
 
+  </div>
+</motion.div>
 
       {/* RIGHT - CONTENT */}
       <motion.div
@@ -332,7 +346,7 @@ const ServicesPage = () => {
         "Merchants: First 5 days – Free storage",
         "Competitive rates after the 5th day",
       ]}
-      image={godownImg}
+      image="/ware.jpg"
       reverse
     />
   </div>
@@ -587,19 +601,21 @@ const ServicesPage = () => {
       </p>
 
       {/* Button */}
-      <motion.button
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.97 }}
-        className="mt-12 inline-flex items-center gap-3 
-                   bg-gradient-to-r from-blue-600 to-indigo-600 
-                   px-10 py-5 rounded-full text-lg font-semibold 
-                   shadow-[0_15px_40px_rgba(37,99,235,0.4)] 
-                   hover:shadow-[0_20px_60px_rgba(37,99,235,0.6)]
-                   transition-all duration-300"
-      >
-        Contact Us
-        <ArrowRight className="w-5 h-5" />
-      </motion.button>
+      <Link to="/contact">
+        <motion.button
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-12 inline-flex items-center gap-3 
+                     bg-gradient-to-r from-blue-600 to-indigo-600 
+                     px-10 py-5 rounded-full text-lg font-semibold 
+                     shadow-[0_15px_40px_rgba(37,99,235,0.4)] 
+                     hover:shadow-[0_20px_60px_rgba(37,99,235,0.6)]
+                     transition-all duration-300"
+        >
+          Contact Us
+          <ArrowRight className="w-5 h-5" />
+        </motion.button>
+      </Link>
 
     </motion.div>
 

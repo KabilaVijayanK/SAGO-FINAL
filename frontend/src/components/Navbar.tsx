@@ -124,9 +124,9 @@ const Navbar = () => {
 
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-3">
-            <button className="hidden lg:inline-flex bg-white text-black px-6 py-2 rounded-xl font-semibold text-sm shadow-md">
+            <Link to="/contact" className="hidden lg:inline-flex bg-white text-black px-6 py-2 rounded-xl font-semibold text-sm shadow-md hover:bg-white/90 transition">
               Enquiry Now
-            </button>
+            </Link>
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -208,9 +208,9 @@ const Navbar = () => {
                 )}
               </div>
 
-              <button className="mt-6 bg-white text-black px-6 py-3 rounded-xl font-semibold">
+              <Link to="/contact" className="mt-6 bg-white text-black px-6 py-3 rounded-xl font-semibold inline-block hover:bg-white/90 transition" onClick={() => setIsMobileMenuOpen(false)}>
                 Enquiry Now
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

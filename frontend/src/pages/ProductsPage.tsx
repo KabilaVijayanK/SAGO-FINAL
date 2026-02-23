@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -22,12 +23,12 @@ const sagoProducts = [
   {
     title: "Tapioca Pearl",
     desc: "Refined starch pearls offering smooth texture and translucent appearance after cooking.",
-    image: "/hero1.jpg",
+    image: "/prd2.jpg",
   },
   {
     title: "Tapioca Broken",
     desc: "Granulated form with high digestibility used in porridge and snacks.",
-    image: "/hero2.jpg",
+    image: "/prd3.jpg",
   },
 ];
 
@@ -65,9 +66,10 @@ const ProductCard = ({ product, i }: any) => (
     viewport={{ once: true }}
     variants={fadeUp}
     custom={i}
-    className="group bg-[#f3efe9] rounded-3xl overflow-hidden 
-               shadow-sm hover:shadow-xl 
-               border border-[#e8e1d6]
+    whileHover={{ y: -6 }}
+    className="group bg-white rounded-2xl overflow-hidden
+               border border-gray-200
+               shadow-sm hover:shadow-2xl
                transition-all duration-500"
   >
     {/* IMAGE */}
@@ -75,37 +77,38 @@ const ProductCard = ({ product, i }: any) => (
       <img
         src={product.image}
         alt={product.title}
-        className="w-full h-[240px] object-cover 
-                   transition duration-700 
+        className="w-full h-[230px] object-cover
+                   transition duration-700
                    group-hover:scale-110"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
     </div>
 
     {/* CONTENT */}
-    <div className="p-7">
-      <h3 className="text-xl font-semibold text-[#2c2823] mb-3">
+    <div className="p-6">
+      <h3 className="text-xl font-semibold text-gray-900 mb-3">
         {product.title}
       </h3>
 
-      <p className="text-sm text-[#6e675f] leading-relaxed mb-6">
+      <p className="text-sm text-gray-600 leading-relaxed mb-6">
         {product.desc}
       </p>
 
       {/* BUTTON ROW */}
       <div className="flex items-center justify-between">
-        <button className="px-5 py-2.5 
-                           bg-[#5e7d55] text-white 
-                           text-sm font-medium 
-                           rounded-xl
-                           hover:bg-[#4f6a48]
+        <Link to="/products" className="inline-block px-5 py-2.5
+                           bg-amber-500 text-white
+                           text-sm font-medium
+                           rounded-lg
+                           hover:bg-amber-600
                            transition duration-300">
           Get Started
-        </button>
+        </Link>
 
-        <button className="flex items-center gap-2 
-                           text-sm font-medium 
-                           text-[#2c2823]
-                           group-hover:gap-3 
+        <button className="flex items-center gap-2
+                           text-sm font-medium
+                           text-gray-800
+                           group-hover:gap-3
                            transition-all duration-300">
           Learn More
           <ArrowRight className="h-4 w-4" />
@@ -121,13 +124,13 @@ const ProductsPage = () => {
       <Navbar />
 
       {/* HERO */}
-      <section className="pt-28 pb-16 text-center bg-gradient-to-b from-white via-gray-50 to-white">
+      <section className="pt-24 pb-12 text-center bg-white">
         <motion.h1
           initial="hidden"
           animate="visible"
           variants={fadeUp}
           custom={0}
-          className="font-serif text-5xl md:text-6xl"
+          className="font-serif text-4xl md:text-5xl"
         >
           SAGOSERVE <span className="text-amber-500">Products</span>
         </motion.h1>
@@ -137,35 +140,36 @@ const ProductsPage = () => {
           animate="visible"
           variants={fadeUp}
           custom={1}
-          className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
+          className="mt-4 text-base text-gray-600 max-w-2xl mx-auto"
         >
-          Chemical-free, quality-tested tapioca sago and starch products manufactured under strict standards.
+          Chemical-free, quality-tested tapioca sago and starch products
+          manufactured under strict standards.
         </motion.p>
       </section>
 
       {/* SAGO PRODUCTS */}
-     <section className="py-14 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="font-serif text-3xl text-center mb-8">
-      Tapioca Sago Varieties
-    </h2>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="font-serif text-3xl text-center mb-8">
+            Tapioca Sago Varieties
+          </h2>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {sagoProducts.map((product, i) => (
-        <ProductCard key={i} product={product} i={i} />
-      ))}
-    </div>
-  </div>
-</section>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sagoProducts.map((product, i) => (
+              <ProductCard key={i} product={product} i={i} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* STARCH PRODUCTS */}
-      <section className="py-20">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-serif text-4xl text-center mb-14">
+          <h2 className="font-serif text-3xl text-center mb-8">
             Tapioca Starch Varieties
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {starchProducts.map((product, i) => (
               <ProductCard key={i} product={product} i={i} />
             ))}
@@ -174,22 +178,24 @@ const ProductsPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-white text-center">
-        <h2 className="text-3xl md:text-4xl font-serif">
+      <section className="py-16 bg-gray-100 text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-gray-900">
           Bulk Orders & Export Enquiries
         </h2>
 
-        <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto">
-          SAGOSERVE connects domestic and export traders with verified manufacturers ensuring transparency and quality.
+        <p className="mt-3 text-gray-600 text-base max-w-2xl mx-auto">
+          SAGOSERVE connects domestic and export traders with verified
+          manufacturers ensuring transparency and quality.
         </p>
 
-        <button className="mt-8 px-10 py-4 
-                           bg-amber-500 
-                           rounded-xl 
-                           hover:bg-amber-600 
-                           transition shadow-lg text-lg">
+        <Link to="/contact" className="inline-block mt-6 px-8 py-3
+                           bg-amber-500
+                           text-white
+                           rounded-lg
+                           hover:bg-amber-600
+                           transition shadow-md">
           Contact Us
-        </button>
+        </Link>
       </section>
 
       <Footer />
