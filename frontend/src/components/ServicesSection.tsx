@@ -9,12 +9,42 @@ import {
 } from "lucide-react";
 
 const services = [
-  { icon: Users, title: "Members", description: "Supporting our cooperative family" },
-  { icon: FlaskConical, title: "Laboratory", description: "Quality testing & certification" },
-  { icon: Building2, title: "Merchant", description: "Trading & commerce support" },
-  { icon: Warehouse, title: "Warehouse", description: "Secure storage facilities" },
-  { icon: FileText, title: "Tender", description: "Transparent bidding process" },
-  { icon: Leaf, title: "Tapioca", description: "Farm to factory solutions" },
+  {
+    icon: Warehouse,
+    title: "Warehousing Facilities",
+    description:
+      "10 owned warehouses ensuring safe storage and smooth supply chain operations.",
+  },
+  {
+    icon: FileText,
+    title: "E-Auction Facilities",
+    description:
+      "Transparent online platform enabling competitive bidding and fair price discovery.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Laboratory Facilities",
+    description:
+      "Quality testing as per FSSAI and IS standards ensuring compliance and export readiness.",
+  },
+  {
+    icon: Building2,
+    title: "Marketing & Direct Sales",
+    description:
+      "Direct sales terminal eliminating middlemen and improving price realization.",
+  },
+  {
+    icon: Users,
+    title: "Loan & Financial Support",
+    description:
+      "Credit facilities to support working capital and reduce financial dependency.",
+  },
+  {
+    icon: Leaf,
+    title: "Weighbridge Excellence",
+    description:
+      "50 & 60 MT weighbridges with 100% accuracy and instant documentation.",
+  },
 ];
 
 const ServicesSection = () => {
