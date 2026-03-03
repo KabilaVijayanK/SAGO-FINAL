@@ -19,10 +19,10 @@ const HeroUltra = () => {
         relative
         min-h-screen md:min-h-[120vh]
         overflow-hidden
-        bg-[#120b07]
+        bg-white
       "
     >
-      {/* 🔥 AMBIENT BLOBS (unchanged desktop, auto scales mobile) */}
+      {/* 🔥 AMBIENT BLOBS (kept same but lighter visibility on white) */}
       <motion.div
         animate={{ x: [0, 60, 0], y: [0, 30, 0] }}
         transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
@@ -30,7 +30,7 @@ const HeroUltra = () => {
           absolute -top-40 -left-40
           w-[420px] h-[420px]
           md:w-[600px] md:h-[600px]
-          bg-gradient-to-r from-[#c08a5b]/40 to-[#8b5e34]/20
+          bg-gradient-to-r from-[#c08a5b]/20 to-[#8b5e34]/10
           blur-[120px] rounded-full
         "
       />
@@ -42,13 +42,10 @@ const HeroUltra = () => {
           absolute top-1/2 right-0
           w-[420px] h-[420px]
           md:w-[650px] md:h-[650px]
-          bg-gradient-to-r from-[#8b5e34]/30 to-[#c08a5b]/10
+          bg-gradient-to-r from-[#8b5e34]/15 to-[#c08a5b]/10
           blur-[140px] rounded-full
         "
       />
-
-      {/* VIGNETTE */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90" />
 
       {/* 🏆 HERO CONTENT */}
       <motion.div
@@ -60,19 +57,15 @@ const HeroUltra = () => {
           max-w-6xl
         "
       >
-        <p className="text-[#c08a5b] tracking-[4px] md:tracking-[6px] text-xs md:text-sm mb-4">
+        <p className="text-secondary tracking-[4px] md:tracking-[6px] text-xs md:text-sm mb-4">
           SINCE 1965
         </p>
 
         <h1
           className="
             font-serif font-semibold
-            text-transparent bg-clip-text
-            bg-gradient-to-r
-            from-[#f5d6a3] via-[#c08a5b] to-[#8b5e34]
-            drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)]
+           text-[#8b5e34]
             mb-6
-
             text-[42px] sm:text-[54px]
             md:text-[clamp(70px,9vw,120px)]
           "
@@ -82,14 +75,14 @@ const HeroUltra = () => {
 
         {/* DESCRIPTION */}
         <div className="max-w-2xl mb-12 md:mb-14">
-          <p className="text-[#e6d3c2] text-base md:text-lg leading-relaxed">
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
             The Salem Starch and Sago Manufacturers’ Service Industrial
             Co-operative Society Ltd. is a pioneering organization dedicated to
             strengthening the tapioca sago and starch industry through
             cooperation, quality assurance, and transparent trade practices.
           </p>
 
-          <p className="text-[#d8c2ad] text-base md:text-lg leading-relaxed mt-4 md:mt-5">
+          <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4 md:mt-5">
             With decades of service and the collective strength of hundreds of
             manufacturers, SAGOSERVE ensures fair pricing, organized marketing,
             and sustainable industrial growth—making Salem a trusted hub for
@@ -107,7 +100,7 @@ const HeroUltra = () => {
               rounded-lg md:rounded-xl
               text-sm md:text-base
               text-white font-semibold
-              shadow-[0_0_30px_rgba(192,138,91,0.4)]
+              shadow-[0_0_20px_rgba(192,138,91,0.3)]
               hover:scale-105 transition
               inline-block text-center
             "
@@ -118,12 +111,12 @@ const HeroUltra = () => {
           <Link
             to="/auction"
             className="
-              border border-[#c08a5b]/40
+              border border-gray-300
               px-8 md:px-10 py-3 md:py-4
               rounded-lg md:rounded-xl
               text-sm md:text-base
-              text-[#d2a679]
-              hover:bg-[#c08a5b]/10 transition
+              text-gray-800
+              hover:bg-gray-100 transition
               inline-block text-center
             "
           >
@@ -132,24 +125,25 @@ const HeroUltra = () => {
         </div>
       </motion.div>
 
-      {/* 🌿 TREE – DESKTOP ONLY */}
+      {/* 🌿 TREE – DESKTOP ONLY (same position, just darker for white bg) */}
       <motion.img
         src="/tree-line.png"
         alt="Sago Growth"
         initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 0.55, x: 0 }}
+        animate={{ opacity: 0.6, x: 0 }}
         transition={{ duration: 2.2, ease: "easeOut" }}
         style={{
           x: useTransform(scrollYProgress, [0, 1], [0, 80]),
         }}
-        className="
-          hidden md:block
-          absolute right-[-40px] top-20
-          w-[520px]
-          z-10 pointer-events-none
-          opacity-50 brightness-75 contrast-110
-          drop-shadow-[0_0_40px_rgba(0,0,0,0.6)]
-        "
+       className="
+  hidden md:block
+  absolute right-[-40px] top-20
+  w-[520px]
+  z-10 pointer-events-none
+  opacity-80
+  brightness-50
+  contrast-125
+"
       />
 
       {/* 🏷️ TAG LINE – DESKTOP ONLY */}
@@ -162,11 +156,11 @@ const HeroUltra = () => {
           absolute right-[200px] top-[400px]
           px-5 py-2
           rounded-full
-          border border-[#c08a5b]/40
-          text-[#f5d6a3]
+          border border-gray-200
+          text-secondary
           text-sm tracking-wide
-          bg-[#120b07]/45 backdrop-blur-sm
-          shadow-[0_0_18px_rgba(192,138,91,0.3)]
+          bg-white
+          shadow-sm
         "
       >
         Strength Through Cooperation

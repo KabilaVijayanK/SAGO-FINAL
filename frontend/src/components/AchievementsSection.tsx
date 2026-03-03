@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import { Package, Briefcase, Trophy, Users } from "lucide-react";
 const Counter = ({ end }: { end: number }) => {
   const [count, setCount] = useState(0);
 
@@ -26,79 +26,137 @@ const Counter = ({ end }: { end: number }) => {
 
 export default function AchievementsSection() {
   return (
-    <section className="relative py-40 bg-black overflow-hidden">
-
-      {/* SOFT GOLD GLOW BG */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(192,138,91,0.15),transparent_70%)]" />
-
-      <div className="relative max-w-6xl mx-auto text-center">
+    <section className="py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-6 text-center">
 
         {/* TITLE */}
-        <p className="tracking-[5px] text-amber-400 uppercase">
+        <p className="tracking-[4px] text-blue-600 uppercase text-sm">
           Our Impact
         </p>
 
-        <h2 className="text-5xl text-white mt-4 mb-24">
+        <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mt-4 mb-20">
           Numbers That Matter
         </h2>
 
-        {/* CENTER STAT */}
+      {/* 🔥 TOP TWO CIRCLES – STRONG VISIBLE VERSION */}
+<div className="flex flex-col md:flex-row items-center justify-center gap-24 mb-28">
+
+  {/* MEMBERS CIRCLE */}
+  <motion.div
+    initial={{ scale: 0.85, opacity: 0 }}
+    whileInView={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 0.8 }}
+    className="
+      relative
+      w-[270px] h-[270px]
+      rounded-full
+      bg-white
+      border-4 border-blue-600
+      shadow-[0_15px_40px_rgba(37,99,235,0.25)]
+      flex flex-col items-center justify-center
+    "
+  >
+    <p className="text-5xl font-bold text-blue-600">
+      <Counter end={344} />
+    </p>
+    <p className="mt-3 text-gray-700 text-sm font-medium">
+      Active Members
+    </p>
+  </motion.div>
+
+  {/* MERCHANTS CIRCLE */}
+  <motion.div
+    initial={{ scale: 0.85, opacity: 0 }}
+    whileInView={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="
+      relative
+      w-[240px] h-[240px]
+      rounded-full
+      bg-white
+      border-4 border-gray-800
+      shadow-[0_12px_30px_rgba(0,0,0,0.15)]
+      flex flex-col items-center justify-center
+    "
+  >
+    <p className="text-4xl font-bold text-gray-900">
+      <Counter end={177} />
+    </p>
+    <p className="mt-2 text-gray-600 text-sm font-medium">
+      Active Merchants
+    </p>
+  </motion.div>
+
+</div>
+{/* 🔥 COMPACT PREMIUM STATS */}
+<div className="max-w-2xl mx-auto">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    {[
+      {
+        value: "84.4 Lakhs",
+        label: "Total Bags Sold",
+        Icon: Package,
+      },
+      {
+        value: "Rs. 3,042 Crore",
+        label: "Total Sales Value",
+        Icon: Briefcase,
+      },
+      {
+        value: "Rs. 36.03",
+        label: "Average Sale Value",
+        Icon: Trophy,
+      },
+      {
+        value: "Rs. 15.97 Crore",
+        label: "Total Profit Earned",
+        Icon: Users,
+      },
+    ].map((item, i) => {
+      const Icon = item.Icon;
+
+      return (
         <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
+          key={item.label}
+          initial={{ y: 25, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: i * 0.1 }}
+          viewport={{ once: true }}
           className="
-            mx-auto
-            w-[320px] h-[320px]
-            rounded-full
-            bg-gradient-to-br from-amber-500/20 to-white/5
-            backdrop-blur-xl
-            border border-amber-400/20
-            flex flex-col justify-center items-center
-            shadow-[0_0_80px_rgba(192,138,91,0.3)]
+            bg-gray-100
+            rounded-xl
+            px-6 py-6
+            transition-all duration-300
+            hover:shadow-md
           "
         >
-          <p className="text-6xl font-bold text-white">
-            <Counter end={1200} />
-          </p>
+          <div className="flex items-start gap-4">
 
-          <p className="text-gray-300 mt-3">
-            Registered Members
-          </p>
-        </motion.div>
+            {/* ICON */}
+            <Icon
+              className="w-6 h-6 text-gray-700 mt-1"
+              strokeWidth={1.6}
+            />
 
-        {/* FLOATING STATS */}
-        <div className="relative mt-24 flex justify-center gap-16">
+            {/* CONTENT */}
+            <div>
+              <div className="text-2xl font-semibold text-gray-900">
+                {item.value}
+              </div>
 
-          {[
-            { n: 40, label: "Years of Excellence" },
-            { n: 25, label: "Daily Auctions" },
-            { n: 90, label: "Lakh Tons/Day" },
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: i * 0.2 }}
-              className="
-                bg-white/5
-                border border-white/10
-                px-10 py-8
-                rounded-2xl
-                backdrop-blur-lg
-              "
-            >
-              <p className="text-4xl text-white font-bold">
-                <Counter end={item.n} />
-              </p>
-
-              <p className="text-gray-400 mt-2">
+              <div className="text-gray-600 text-sm mt-2 leading-snug">
                 {item.label}
-              </p>
-            </motion.div>
-          ))}
+              </div>
+            </div>
 
-        </div>
+          </div>
+        </motion.div>
+      );
+    })}
+
+  </div>
+</div>
 
       </div>
     </section>

@@ -16,57 +16,39 @@ const quickLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: "#" },
-  { icon: Twitter, href: "#" },
-  { icon: Instagram, href: "#" },
-  { icon: Linkedin, href: "#" },
-];
-
 const Footer = () => {
   return (
     <footer className="bg-[#0b0f1a] text-white">
 
-      <div className="container-editorial pt-12 pb-10">
+      <div className="max-w-7xl mx-auto px-6 py-20">
 
-        {/* ===== MAIN GRID ===== */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        {/* MAIN GRID */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
 
           {/* LOGO + ABOUT */}
           <div>
-            <Link to="/" className="flex items-center gap-3">
-  <img 
-    src="/logo.png" 
-    alt="Sagoserve"
-    className="w-8 h-8 object-contain"
-  />
-  <span className="text-white font-semibold text-lg">
-    SAGOSERVE
-  </span>
-</Link>
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <img
+                src="/logo.png"
+                alt="Sagoserve"
+                className="w-9 h-9 object-contain"
+              />
+              <span className="text-white font-semibold text-xl">
+                SAGOSERVE
+              </span>
+            </Link>
 
             <p className="text-white/60 leading-relaxed text-sm">
-              Trusted source for quality sago and starch since 1981.
-              Connecting farmers, processors, and buyers across regions.
+              Sagoserve was formed to address challenges such as
+              inadequate credit facilities, unorganized marketing,
+              lack of warehousing infrastructure, and exploitation
+              by middlemen.
             </p>
-
-            {/* Social */}
-            <div className="flex gap-4 mt-6">
-              {socialLinks.map((social, i) => (
-                <a
-                  key={i}
-                  href={social.href}
-                  className="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-white/10 transition"
-                >
-                  <social.icon size={16} />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* QUICK LINKS */}
           <div>
-            <h4 className="font-semibold mb-5 text-white/90">
+            <h4 className="font-semibold mb-6 text-white text-lg">
               Quick Links
             </h4>
 
@@ -86,13 +68,13 @@ const Footer = () => {
 
           {/* SERVICES */}
           <div>
-            <h4 className="font-semibold mb-5 text-white/90">
+            <h4 className="font-semibold mb-6 text-white text-lg">
               Services
             </h4>
 
             <ul className="space-y-3 text-white/60 text-sm">
               <li>Lab Testing</li>
-              <li>Auction System</li>
+              <li>E-Auction</li>
               <li>Market Pricing</li>
               <li>Member Support</li>
             </ul>
@@ -100,7 +82,7 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h4 className="font-semibold mb-5 text-white/90">
+            <h4 className="font-semibold mb-6 text-white text-lg">
               Contact
             </h4>
 
@@ -126,17 +108,17 @@ const Footer = () => {
 
         </div>
 
-        {/* ===== BOTTOM BAR ===== */}
+        {/* BOTTOM BAR */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
 
           <p>© 2025 SAGOSERVE. All rights reserved.</p>
 
           <div className="flex gap-6">
-            <a className="hover:text-white transition">
+            <a className="hover:text-white transition cursor-pointer">
               Privacy Policy
             </a>
-            <a className="hover:text-white transition">
-              Terms
+            <a className="hover:text-white transition cursor-pointer">
+              Terms & Conditions
             </a>
           </div>
 
