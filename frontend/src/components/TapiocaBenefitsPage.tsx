@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useMemo } from "react";
-
+import { Shirt, Utensils, Droplets, Pill, FileText } from "lucide-react";
 const benefits = [
   { text: "Supports Baby's Growth", angle: -120 },
   { text: "Strengthens Bones & Muscles", angle: -50 },
@@ -130,41 +130,60 @@ export default function TapiocaBenefitsPremium() {
         ))}
       </div>
 
-      {/* INDUSTRIAL USES */}
-      <div className="mt-24 md:mt-40 w-full max-w-6xl px-4">
+     
+<div className="mt-24 md:mt-40 w-full max-w-6xl px-4">
 
-        <div className="flex items-center justify-center mb-12 md:mb-16">
-          <div className="w-12 md:w-24 h-[2px] bg-gray-300 mr-4 md:mr-6" />
-          <h3 className="text-xl md:text-3xl font-semibold text-amber-800 text-center">
-            Industrial Uses of Tapioca Starch
-          </h3>
-          <div className="w-12 md:w-24 h-[2px] bg-gray-300 ml-4 md:ml-6" />
-        </div>
+  {/* Heading */}
+  <div className="flex items-center justify-center mb-12 md:mb-16">
+    <div className="w-12 md:w-24 h-[2px] bg-gray-300 mr-4 md:mr-6" />
+    <h3 className="text-xl md:text-3xl font-semibold text-amber-800 text-center">
+      Industrial Uses of Tapioca Starch
+    </h3>
+    <div className="w-12 md:w-24 h-[2px] bg-gray-300 ml-4 md:ml-6" />
+  </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {[
-            "Textile Industry",
-            "Food Processing",
-            "Adhesive Industry",
-            "Pharmaceutical Industry",
-            "Paper Industry",
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-md text-center"
-            >
-              <p className="text-gray-800 font-medium text-base md:text-lg">
-                {item}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+  {/* Grid */}
+  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
 
-      </div>
+    {[
+      { name: "Textile Industry", Icon: Shirt },
+      { name: "Food Processing", Icon: Utensils },
+      { name: "Adhesive Industry", Icon: Droplets },
+      { name: "Pharmaceutical Industry", Icon: Pill },
+      { name: "Paper Industry", Icon: FileText },
+    ].map((item, i) => {
+      const Icon = item.Icon;
+
+      return (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.15 }}
+          viewport={{ once: true }}
+          whileHover={{
+            y: -6,
+            boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+          }}
+          className="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm text-center transition-all duration-300"
+        >
+          {/* Icon */}
+          <div className="mb-5 flex justify-center">
+            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gray-100">
+              <Icon className="w-6 h-6 text-amber-700" strokeWidth={1.6} />
+            </div>
+          </div>
+
+          {/* Text */}
+          <p className="text-gray-800 font-medium text-base md:text-lg">
+            {item.name}
+          </p>
+        </motion.div>
+      );
+    })}
+
+  </div>
+</div>
 
     </section>
   );

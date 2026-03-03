@@ -87,19 +87,31 @@ export default function BlogNewsPage() {
           ))}
 
         </div>
+{/* BOTTOM CTA BOX WRAPPER */}
+<div className="relative mb-24">
 
-        {/* BOTTOM CTA BOX */}
-        <div className="border border-gray-900 rounded-3xl px-8 py-14 md:px-20 md:py-20 flex flex-col md:flex-row items-center justify-between bg-white shadow-sm gap-8 md:gap-0 mb-24">
-          <h4 className="text-3xl font-semibold text-gray-900 text-center md:text-left leading-snug mb-8 md:mb-0 md:mr-8">
-            Start your journey with <span className="text-amber-700">SAGOSERVE</span> in the<br className="hidden md:block" />
-            Sago and Starch Market
-          </h4>
+  {/* LEFT RIBBON LINE */}
+  <div className="hidden md:block absolute -left-6 top-1/2 -translate-y-1/2 w-12 h-[2px] bg-gray-900" />
 
-          <button className="px-10 py-4 border border-gray-900 rounded-full text-gray-900 font-semibold text-lg hover:bg-gray-900 hover:text-white transition-all shadow-md">
-            Contact Us →
-          </button>
+  {/* RIGHT RIBBON LINE */}
+  <div className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 w-12 h-[2px] bg-gray-900" />
 
-        </div>
+  {/* MAIN CTA BOX */}
+  <div className="border border-gray-900 rounded-3xl px-8 py-14 md:px-20 md:py-20 flex flex-col md:flex-row items-center justify-between bg-white shadow-sm gap-8 md:gap-0">
+
+    <h4 className="text-3xl font-semibold text-gray-900 text-center md:text-left leading-snug mb-8 md:mb-0 md:mr-8">
+      Start your journey with <span className="text-amber-700">SAGOSERVE</span> in the
+      <br className="hidden md:block" />
+      Sago and Starch Market
+    </h4>
+
+    <button className="px-10 py-4 border border-gray-900 rounded-full text-gray-900 font-semibold text-lg hover:bg-gray-900 hover:text-white transition-all shadow-md">
+      Contact Us →
+    </button>
+
+  </div>
+
+</div>
 
       </div>
 

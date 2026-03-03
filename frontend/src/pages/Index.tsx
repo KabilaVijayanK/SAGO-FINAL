@@ -25,20 +25,21 @@ const Index = () => {
     <main className="overflow-x-hidden">
       <Navbar />
       <IntroSection />
-      <IntroDividerText /> 
+      {/* <IntroDividerText />  */}
     
-    <AboutScrollSection />
+    {/* <AboutScrollSection /> */}
 
       <HeroUltra />
-      <ExcellenceSection />
-<UniqueIdeasHoverSection />
-      <ServicesSection />
-      <TapiocaHighlight />
+       <ProductsSection />
+       <QualityPage />
+      {/* <ExcellenceSection /> */}
+{/* <UniqueIdeasHoverSection /> */}
+      {/* <TapiocaHighlight /> */}
       <AboutSection />
-      <QualityPage />
       <AchievementsSection />
-      <ScrollingText />
-      <ProductsSection />
+      <ServicesSection />
+      {/* <ScrollingText /> */}
+      
      <TapiocaBenefitsPage />
       <TapiocaRecipesPage />
      
